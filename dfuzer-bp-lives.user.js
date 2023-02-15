@@ -210,7 +210,7 @@
             const canvasHeight = canvasRect.height;
 
             let rectSize = Math.round((canvasHeight / 7) * window.screenprop); // Frame's size in pixels
-            let lettersOffset = (rectSize + 8) * 2 + 100; // Offset from the border in pixels, to bring the letters closer to eyesight
+            let lettersOffset = (rectSize + 8) * 2 + 20; // Offset from the border in pixels, to bring the letters closer to eyesight
             let lettersYOffset = (canvasHeight - (window.gameBl.length / 3) * (rectSize + 8)) / 2 - 5;
             let lettersStyle = `bold ${Math.max(10, rectSize - 20)}px "Lato"`; // Letters style
 
