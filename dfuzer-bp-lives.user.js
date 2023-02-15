@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         dFuZer's Bombparty letters
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      1.0
 // @description  Allowing the player to see the letters with the old bombparty letters arrangement. NOT COMPATIBLE WITH MACA'S OVERLAY.
 // @author       Enzo (dFuZer)
 // @include      https://*.jklm.fun/*
@@ -13,6 +13,15 @@
 (function () {
     "use strict";
     let start = () => {
+        let rectSize = Math.round((canvasHeight / 7) * window.screenprop); // Frame's size in pixels
+        let letterDone = "#363636"; // Placed letter's character color
+        let letterTodo = "#141414"; // Not placed letter's character color
+        let lettersOffset = (rectSize + 8) * 2 + 100; // Offset from the border in pixels, to bring the letters closer to eyesight
+        let lettersYOffset = (canvasHeight - (window.gameBl.length / 3) * (rectSize + 8)) / 2 - 5;
+        let lettersStyle = `bold ${Math.max(10, rectSize - 20)}px "Lato"`; // Letters style
+        let rectDone = "#5c5c5c"; // Placed letter's frame
+        let rectTodo = `rgb(255, ${255 - v}, ${255 - v})`; // Not placed letter's frame
+
         let wMap = {
             fr: {
                 a: 1.5256986899065066,
@@ -205,14 +214,6 @@
             const canvasWidth = canvasRect.width;
             const canvasHeight = canvasRect.height;
 
-            var rectSize = Math.round((canvasHeight / 7) * window.screenprop); // Frame's size in pixels
-
-            var letterDone = "#363636"; // Placed letter's character color
-            var letterTodo = "#141414"; // Not placed letter's character color
-            var lettersOffset = (rectSize + 8) * 2 + 100; // Offset from the border in pixels, to bring the letters closer to eyesight
-            var lettersYOffset = (canvasHeight - (window.gameBl.length / 3) * (rectSize + 8)) / 2 - 5;
-            var lettersStyle = `bold ${Math.max(10, rectSize - 20)}px "Lato"`; // Letters style
-
             if (dpr > 1 && !document.hidden && elapsedAnimateTime > 1000 / 20) {
                 accumulatedSlowFrames++;
                 if (accumulatedSlowFrames > 5) {
@@ -329,12 +330,9 @@
                     ctx.translate(letterSize / 2, letterSize / 2);
                     let l = 0;
 
-                    var rectDone = "#5c5c5c"; // Placed letter's frame
-
                     for (const letter of window.gameBl) {
                         let v = wc[letter];
 
-                        var rectTodo = `rgb(255, ${255 - v}, ${255 - v})`; // Not placed letter's frame
                         ctx.save();
 
                         //ctx.translate(l % 2 == 1 ? -lettersOffset : (0 - letterSize - letterSpacing) - lettersOffset, Math.floor(l / 2) * (letterSize + letterSpacing));
