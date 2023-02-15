@@ -16,7 +16,6 @@
         let letterDone = "#363636"; // Placed letter's character color
         let letterTodo = "#141414"; // Not placed letter's character color
         let rectDone = "#5c5c5c"; // Placed letter's frame
-        let rectTodo = `rgb(255, ${255 - v}, ${255 - v})`; // Not placed letter's frame
 
         let wMap = {
             fr: {
@@ -333,6 +332,7 @@
 
                     for (const letter of window.gameBl) {
                         let v = wc[letter];
+                        let rectTodo = `rgb(255, ${255 - v}, ${255 - v})`; // Not placed letter's frame
 
                         ctx.save();
 
@@ -610,7 +610,6 @@
         }
 
         socket.on("setup", function (data) {
-            console.log("mdr");
             if (data.milestone.name === "round") {
                 startTick();
             } else {
