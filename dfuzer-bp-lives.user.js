@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         dFuZer's Bombparty letters
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0.1
 // @description  Allowing the player to see the letters with the old bombparty letters arrangement. NOT COMPATIBLE WITH MACA'S OVERLAY.
 // @author       Enzo (dFuZer)
 // @include      https://*.jklm.fun/*
