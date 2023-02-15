@@ -7,7 +7,7 @@
 // @include      https://*.jklm.fun/*
 // @exclude      https://jklm.fun/*
 // @grant        none
-// @icon         https://raw.githubusercontent.com/dFuZer/BirdBotRepo/main/PP.png
+// @icon         https://raw.githubusercontent.com/dFuZer/bp-letters/master/icon.jpg
 
 // ==/UserScript==
 (function () {
