@@ -18,7 +18,7 @@
         let rectDone = "#5c5c5c"; // Placed letter's frame
 
         let wMap = {
-            fr: {
+            "fr": {
                 a: 1.5256986899065066,
                 b: 9.946901733244067,
                 s: 1.4549108444641745,
@@ -41,7 +41,7 @@
                 q: 24.94146832798627,
                 f: 11.769341806467512,
             },
-            en: {
+            "en": {
                 a: 1.4429893051041345,
                 m: 3.8302366493155966,
                 k: 12.040871212121212,
@@ -67,7 +67,7 @@
                 j: 64.36100425187284,
                 q: 65.60970072239422,
             },
-            de: {
+            "de": {
                 a: 2.73757177282599,
                 c: 5.923624107376872,
                 h: 4.12401641600881,
@@ -91,7 +91,7 @@
                 v: 20.30278005421421,
                 z: 13.363748586603595,
             },
-            es: {
+            "es": {
                 a: 1,
                 r: 1.8447025936569328,
                 o: 2.41802476402987,
@@ -137,7 +137,7 @@
                 g: 10.515335444522636,
                 p: 6.806905322298991,
             },
-            it: {
+            "it": {
                 a: 1.0079914730932056,
                 b: 8.08099650980864,
                 c: 2.393618917473709,
@@ -315,10 +315,11 @@
 
             // Bonus alphabet
             if (milestone.name === "round") {
-                //Funny tweak that you can reactivate if you want to see the 1st player's letters (which means the bot of a room bot's letters), instead of seeing nothing when you're not playing.
-                const selfPlayerState = milestone.playerStatesByPeerId[selfPeerId] !== undefined ? milestone.playerStatesByPeerId[selfPeerId] : milestone.playerStatesByPeerId[0];
+                // Tweak that makes you see the current player's letters instead of seeing nothing when you're not playing.
+                const selfPlayerState =
+                    milestone.playerStatesByPeerId[selfPeerId] !== undefined ? milestone.playerStatesByPeerId[selfPeerId] : milestone.playerStatesByPeerId[milestone.currentPlayerPeerId];
+                // const selfPlayerState = milestone.playerStatesByPeerId[selfPeerId];
 
-                //const selfPlayerState = milestone.playerStatesByPeerId[selfPeerId];
                 if (selfPlayerState != null && radius > 50) {
                     const letterSize = rectSize;
                     const letterSpacing = 8;
