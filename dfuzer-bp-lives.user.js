@@ -384,8 +384,10 @@
                         ctx.font = lettersStyle;
                         ctx.fillStyle = selfPlayerState.bonusLetters[letter] > 0 ? letterTodo : letterDone;
                         ctx.fillText(letter.toUpperCase(), 0, 0);
-                        ctx.font = lettersCountStyle;
-                        ctx.fillText(selfPlayerState.bonusLetters[letter], -letterSize / 3, letterSize / 3);
+                        if(selfPlayerState.bonusLetters[letter] > 0) {
+                            ctx.font = lettersCountStyle;
+                            ctx.fillText(selfPlayerState.bonusLetters[letter], -letterSize / 3, letterSize / 3);
+                        }
                         ctx.restore();
 
                         l++;
