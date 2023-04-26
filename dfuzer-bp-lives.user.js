@@ -384,7 +384,7 @@
                         ctx.font = lettersStyle;
                         ctx.fillStyle = selfPlayerState.bonusLetters[letter] > 0 ? letterTodo : letterDone;
                         ctx.fillText(letter.toUpperCase(), 0, 0);
-                        if(selfPlayerState.bonusLetters[letter] > 0) {
+                        if (selfPlayerState.bonusLetters[letter] > 0) {
                             ctx.font = lettersCountStyle;
                             ctx.fillText(selfPlayerState.bonusLetters[letter], -letterSize / 3, letterSize / 3);
                         }
@@ -727,7 +727,7 @@
     function load() {
         if (window.location.pathname == "/") {
             return;
-        } else if (document.readyState == "complete" && socket && constants && players && hasLoadedText && ~selfPeerId && milestone && document.querySelector(".main.page")) {
+        } else if (document.readyState == "complete" && socket && constants && players && hasLoadedText && ~selfPeerId && milestone && rules && document.querySelector(".main.page")) {
             try {
                 start();
             } catch (e) {
