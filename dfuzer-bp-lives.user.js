@@ -727,7 +727,18 @@
     function load() {
         if (window.location.pathname == "/") {
             return;
-        } else if (document.readyState == "complete" && socket && constants && players && hasLoadedText && ~selfPeerId && milestone && rules && document.querySelector(".main.page")) {
+        } else if (
+            document.readyState == "complete" &&
+            socket &&
+            constants &&
+            players &&
+            hasLoadedText &&
+            ~selfPeerId &&
+            milestone &&
+            rules &&
+            rules.customBonusAlphabet &&
+            document.querySelector(".main.page")
+        ) {
             try {
                 start();
             } catch (e) {
